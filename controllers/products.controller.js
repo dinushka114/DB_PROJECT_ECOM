@@ -35,6 +35,16 @@ exports.addProduct = async (req, res) => {
 
 }
 
+exports.getSingleProduct=async(req,res)=>{
+    const product = await Product.findOne({_id:req.params.id});
+    if(product){
+        res.status(200).json({ product })
+    }else{
+        res.status(404).json({ message: "Product not found", status: 'FAILED' })
+
+    }
+}
+
 exports.getProducts = async (req, res) => {
     const products = await Product.find({})
     if (products) {
