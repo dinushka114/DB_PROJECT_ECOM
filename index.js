@@ -1,28 +1,24 @@
 const express = require("express");
 const app = express();
-const path = require("path")
 const bodyParser = require("body-parser");
-var cors = require('cors')
+const axios = require("axios");
+const cors = require("cors")
 
-const PORT = 4001;
-
-var db_connection = require("./database/index");
-
-db_connection()
-
-
-app.use(cors()) // Use this after the variable declaration
-app.use(express.static(path.join(__dirname, 'public')));
+const PORT = 5000;
+app.use(cors()) 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.post("/events" , (req,res)=>{
+    const event = req.body;
 
-const productRoute = require("./routes/index");
+    axios.post("http://localhost:4001/events" , event)
+    axios.post("http://localhost:4002/events" , event)
 
-app.use("/api" , productRoute);
+    res.send({status:'OK'})
 
+})
 
-
-app.listen(PORT , ()=>{
-    console.log(`Product service is running on PORT ${PORT}`);
+app.listen(PORT,()=>{
+    console.log(`Event bus is running on PORT ${PORT}`)
 })
