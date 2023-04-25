@@ -1,5 +1,4 @@
 const express = require("express");
-const app = express();
 const path = require("path")
 const bodyParser = require("body-parser");
 var cors = require('cors')
@@ -10,6 +9,7 @@ var db_connection = require("./database/index");
 
 db_connection()
 
+const app = express();
 
 app.use(cors()) // Use this after the variable declaration
 app.use(express.static(path.join(__dirname, 'public')));

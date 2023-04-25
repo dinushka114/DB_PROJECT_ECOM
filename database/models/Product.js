@@ -26,7 +26,7 @@ const ProductSchema = new mongoose.Schema({
         required:true
     },
     category:{
-        type:mongoose.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:'Category',
         required:true
     },
@@ -34,10 +34,15 @@ const ProductSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
+    seller:{
+        type:String,
+        required:true
+    },
     reorder_level:{
         type:Number,
         required:true
-    }
+    },
+    reviews:[Object]
 }, {timestamps:true})
 
-module.exports = new mongoose.model('Product' , ProductSchema)
+module.exports = mongoose.model('Product' , ProductSchema)
