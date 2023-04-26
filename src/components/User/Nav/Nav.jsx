@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, Link } from "react-router-dom";
 
 
-const Nav = ({ items }) => {
+const Nav = ({ items , searchProduct , setQuery }) => {
 
     const navigate = useNavigate();
 
@@ -22,6 +22,11 @@ const Nav = ({ items }) => {
         localStorage.removeItem("userId");
         navigate("/user-login")
     }
+
+
+    useEffect(() => {
+        // alert(items)
+    }, [])
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -46,6 +51,10 @@ const Nav = ({ items }) => {
                             </ul>
                         </li>
                     </ul>
+                    <form class="d-flex me-2" onSubmit={searchProduct}>
+                        <input onChange={(e)=>{setQuery(e.target.value)}} class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
                     <form className="d-flex">
                         <Link to={'/user-register'}><button className='btn btn-outline-primary' style={{ marginRight: '5px' }}>Register</button></Link>
                         {
@@ -60,6 +69,7 @@ const Nav = ({ items }) => {
                         </Link>
 
                     </form>
+
                 </div>
             </div>
         </nav>

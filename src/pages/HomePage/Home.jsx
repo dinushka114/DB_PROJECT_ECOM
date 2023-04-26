@@ -9,14 +9,29 @@ const Home = () => {
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [query, setQuery] = useState('');
+    const [isSearch, setIsSearch] = useState(false)
 
     useEffect(() => {
         getProducts()
     }, [])
 
+    const searchProducts = async (e) => {
+        e.preventDefault()
+        await axios.post("http://localhost:4003/api/search-product", { "query": query })
+            .then(res => {
+                // console.log(res)
+                setProducts(res.data)
+                setIsSearch(true)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     const getProducts = async () => {
         setLoading(true);
+        setIsSearch(false)
         await axios.get("http://localhost:4001/api/get-products")
             .then(res => {
                 setProducts(res.data.products)
@@ -30,15 +45,24 @@ const Home = () => {
 
     return (
         <>
-            <Nav />
+            <Nav setQuery={setQuery} searchProduct={searchProducts} />
             <Header />
             <section class="py-5">
                 <div class="container px-4 px-lg-5 mt-5">
+                    {
+                        isSearch ? <h2 className='m-2'>Search results for "{query}"</h2> : null
+                    }
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+
                         {
                             loading ? 'Loading' : products.map((product, index) => {
-                                return(<Product reviews={product.reviews} productName={product.name} price={product.price} image={product.image} id={product._id} />)
+                                return (<Product reviews={product.reviews} productName={product.name} price={product.price} image={product.image} id={product._id} />)
                             })
+                        }
+
+                        {
+                            products.length == 0 ? 'No products found' : null
                         }
 
                     </div>

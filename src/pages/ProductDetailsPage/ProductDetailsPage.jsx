@@ -129,10 +129,9 @@ const ProductDetailsPage = () => {
 
     }
 
-    // console.log(id + " quantity")
     let tempCart = JSON.parse(localStorage.getItem("cart")) || []; // get cart of localstorage or []
 
-    const addToCart = (image, name, price) => {
+    const addToCart = (image, name, price, seller) => {
 
         if (qty === 0 || qty == "") {
             alert("Please add quantity")
@@ -147,16 +146,17 @@ const ProductDetailsPage = () => {
         item['image'] = image;
         item['name'] = name;
         item['price'] = price;
+        item['seller'] = seller;
 
         let isExisingItem = tempCart.find(cartItem => cartItem.id == id);
 
         if (isExisingItem) {
-            // let tempQty = isExisingItem.quantity
             isExisingItem.quantity = item.quantity
             setCart(tempCart)
             localStorage.setItem("cart", JSON.stringify(tempCart))
         } else {
             if (localStorage.getItem("cart")) {
+                tempCart = JSON.parse(localStorage.getItem("cart"))
                 tempCart.push(item)
                 setCart(tempCart)
                 localStorage.setItem("cart", JSON.stringify(tempCart))
@@ -170,7 +170,6 @@ const ProductDetailsPage = () => {
 
 
     }
-
     const increaseQty = () => {
         setQty(qty + 1)
     }
@@ -223,7 +222,7 @@ const ProductDetailsPage = () => {
 
                                 <button onClick={increaseQty} className='btn btn-outline-success ms-2 me-2'>+</button>
 
-                                <button onClick={() => addToCart(product.image, product.name, product.price)} className="btn btn-outline-dark flex-shrink-0" type="button">
+                                <button onClick={() => addToCart(product.image, product.name, product.price, product.seller)} className="btn btn-outline-dark flex-shrink-0" type="button">
                                     <i className="bi-cart-fill me-1"></i>
                                     Add to cart
                                 </button>

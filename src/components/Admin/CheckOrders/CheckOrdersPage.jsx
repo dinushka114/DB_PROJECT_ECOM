@@ -48,8 +48,6 @@ const CheckOrdersPage = () => {
     return (
         <div className='m-2'>
             <h1>Orders</h1>
-
-
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -64,7 +62,6 @@ const CheckOrdersPage = () => {
                         <th>Action</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     {
                         loading ? 'Loading..' : orders.map(order => {
@@ -92,7 +89,7 @@ const CheckOrdersPage = () => {
                                         <select onChange={statusHandler} className='form-control'>
                                             <option >Select status</option>
                                             <option value="Pending">Pending</option>
-                                            <option value="Verify">Verify</option>
+                                            <option value="Verifed">Verify</option>
                                             <option value="Cancel">Cancel</option>
                                         </select>
                                     </td>

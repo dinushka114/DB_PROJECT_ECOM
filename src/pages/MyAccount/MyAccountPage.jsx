@@ -70,7 +70,7 @@ const MyAccountPage = () => {
                                                 order.cart.map(item => {
                                                     return (
                                                         <>
-                                                            <p>{item.name} - {item.price}</p>
+                                                            <p>{item.name.substring(0,5)}.. - {item.price} X {item.quantity}</p>
                                                             <img src={item.image} width={100} alt="" srcset="" />
                                                         </>
                                                     )
@@ -80,13 +80,15 @@ const MyAccountPage = () => {
                                         <td>{order.address}</td>
                                         <td>{order.delivery_service}</td>
                                         <td>{order.payment_id}</td>
-                                        <td>{"pending"}</td>
+                                        <td>{order.status}</td>
                                     </tr>
                                 )
                             })
                         }
 
                     </tbody>
+
+                    <p>Track order</p>
 
                 </table>
 
