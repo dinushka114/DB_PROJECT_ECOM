@@ -6,6 +6,27 @@ const CheckOrdersPage = () => {
 
     const [orders, setOrders] = useState([])
     const [loading, setLoading] = useState(false)
+    const [status, setStatus] = useState('Pending')
+
+
+    const statusHandler = (e) => {
+        let status = e.target.value;
+        if (status !== "Select status") {
+            // alert(status)
+            setStatus(status)
+        }
+    }
+
+    const updateStatus = async (id) => {
+        await axios.post("http://localhost:4005/api/change-order-status", { order_id: id, status })
+            .then(res => {
+                getAllOrders()
+            })
+            .catch(err => {
+                alert("Err")
+            })
+
+    }
 
     const getAllOrders = async () => {
         setLoading(true)
@@ -50,13 +71,13 @@ const CheckOrdersPage = () => {
                             return (
                                 <tr>
                                     <td>    {order._id}</td>
-                                    <td>{order.createdAt.substring(0,10)}</td>
+                                    <td>{order.createdAt.substring(0, 10)}</td>
                                     <td>
                                         {
                                             order.cart.map(item => {
                                                 return (
                                                     <>
-                                                        <p>{item.name.substring(0,7)}... - {item.price} x <span style={{ fontWeight: 'bolder' }}>{item.quantity}</span></p>
+                                                        <p>{item.name.substring(0, 7)}... - {item.price} x <span style={{ fontWeight: 'bolder' }}>{item.quantity}</span></p>
                                                         <img src={item.image} width={100} alt="" srcset="" />
                                                     </>
                                                 )
@@ -67,14 +88,15 @@ const CheckOrdersPage = () => {
                                     <td>{order.address}</td>
                                     <td>{order.delivery_service}</td>
                                     <td>{order.payment_id}</td>
-                                    <td>
-                                        <select className='form-control'>
+                                    <td> {order.status}
+                                        <select onChange={statusHandler} className='form-control'>
+                                            <option >Select status</option>
                                             <option value="Pending">Pending</option>
                                             <option value="Verify">Verify</option>
-                                            <option value="Cancal">Cancal</option>
+                                            <option value="Cancel">Cancel</option>
                                         </select>
                                     </td>
-                                    <td> <button className='btn btn-warning'>Update</button> </td>
+                                    <td> <button onClick={() => { updateStatus(order._id) }} className='btn btn-warning'>Update</button> </td>
                                 </tr>
                             )
                         })
