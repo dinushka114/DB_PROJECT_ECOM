@@ -3,11 +3,10 @@ const { randomBytes } = require('crypto');
 const axios = require("axios")
 
 const Order = require("../database/models/Order");
+const Product = require("../database/models/Product");
 
 exports.placeOrder = async (req, res) => {
     const { user, cart, address, name, delivery_service } = req.body;
-
-    console.log(user)
 
     const payment_id = randomBytes(4).toString('hex');
 
@@ -47,5 +46,18 @@ exports.getMyOrders = async (req, res) => {
     } else {
         res.status(404).json({ message: "Not found any orders", status: 'FAILED' })
 
+    }
+}
+
+exports.searchProduct = async (req, res) => {
+
+    const { query } = req.body;
+
+    const result = await Product.find({ $text: { $search: query } })
+    
+    if(result){
+        res.status(200).json(result)
+    }else{
+        res.status(404).json({message:"No product found"})
     }
 }
