@@ -20,12 +20,14 @@ const ShoppingCartPage = () => {
     const [totalPrice, setTotalPrice] = useState(0)
 
     const calculateTotalPrice = () => {
+        const getCart = JSON.parse(localStorage.getItem("cart"))
         let total = 0;
-        cart.map(item => {
+        getCart.map(item => {
             total += item.quantity * item.price
 
         })
-
+        // alert(total)
+        localStorage.setItem("totalPrice", total)
         setTotalPrice(total)
     }
 
@@ -33,6 +35,7 @@ const ShoppingCartPage = () => {
         let tempCart = cart.filter(item => item.id != id)
         setCart(tempCart)
         localStorage.setItem("cart", JSON.stringify(tempCart))
+        calculateTotalPrice()
     }
 
 
@@ -86,12 +89,6 @@ const ShoppingCartPage = () => {
                                                                     <img src={item.image} className="d-block ui-w-40 ui-bordered mr-4" alt="" />
                                                                     <div className="media-body">
                                                                         <Link to={`/product/${item.id}`}><a className="d-block text-dark">{item.name}</a></Link>
-                                                                        {/* <small>
-                                                                    <span className="text-muted">Color:</span>
-                                                                    <span className="ui-product-color ui-product-color-sm align-text-bottom" style={{ background: '#e81e2c' }}></span> &nbsp;
-                                                                    <span className="text-muted">Size: </span> EU 37 &nbsp;
-                                                                    <span className="text-muted">Ships from: </span> China
-                                                                </small> */}
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -120,7 +117,7 @@ const ShoppingCartPage = () => {
                                         </div>
                                         <div className="text-right mt-4">
                                             <label className="text-muted font-weight-normal m-0">Total price</label>
-                                            <div className="text-large"><strong>Rs. {totalPrice}</strong></div>
+                                            <div className="text-large" id='total_price'><strong>Rs. {totalPrice}</strong></div>
                                         </div>
                                     </div>
                                 </div>

@@ -6,6 +6,7 @@ import SellerHomeContent from '../../../components/Seller/SellerHomeContent/Sell
 import SellerAddCategory from '../../../components/Seller/SellerAddCategory/SellerAddCategory';
 import ManageProducts from '../../../components/Seller/ManageProducts/ManageProducts';
 import UpdateProduct from '../../../components/Seller/UpdateProduct/UpdateProduct';
+import SellerTrackingProduct from '../../../components/Seller/SellerTrackingProduct/SellerTrackingProduct';
 
 const SellerHomePage = () => {
 
@@ -36,6 +37,8 @@ const SellerHomePage = () => {
                         <Route path='/manage-product' element={<ManageProducts />} />
                         <Route path='/update-product/:id' element={<UpdateProduct />} />
                         <Route path='/edit/:id' element={<ManageProducts />} />
+                        <Route path='/products-tracking' element={<SellerTrackingProduct />} />
+
 
                     </Routes>
                 </div>

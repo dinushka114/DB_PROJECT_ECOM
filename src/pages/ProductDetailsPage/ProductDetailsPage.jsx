@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Nav from '../../components/User/Nav/Nav'
 import Footer from '../../components/User/Footer/Footer'
 import axios from 'axios';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import StarRating from '../../components/StartRating/StartRating';
 import TextAreaBox from '../../components/TextArea/TextAreaBox';
 import SubmitButton from '../../components/SubmitButton/SubmitButton';
@@ -12,9 +12,11 @@ const ProductDetailsPage = () => {
 
     const { id } = useParams();
 
+    const navigate = useNavigate();
+
     let [cart, setCart] = useState([])
     const [qty, setQty] = useState(0)
-
+    const [cartLength, setCartLength] = useState(0)
 
     const [rating, setRating] = useState(0);
 
@@ -154,8 +156,9 @@ const ProductDetailsPage = () => {
             isExisingItem.quantity = item.quantity
             setCart(tempCart)
             localStorage.setItem("cart", JSON.stringify(tempCart))
+
         } else {
-            if (localStorage.getItem("cart")) {
+            if (localStorage.getItem("cart") != null) {
                 tempCart = JSON.parse(localStorage.getItem("cart"))
                 tempCart.push(item)
                 setCart(tempCart)
@@ -164,10 +167,13 @@ const ProductDetailsPage = () => {
                 tempCart.push(item)
                 setCart(tempCart)
                 localStorage.setItem("cart", JSON.stringify(tempCart))
+                var tessss = JSON.parse(localStorage.getItem("cart"))
+                setCartLength(tessss.length)
+
             }
 
         }
-
+        window.location.href = "/product/" + id
 
     }
     const increaseQty = () => {
@@ -189,7 +195,7 @@ const ProductDetailsPage = () => {
 
     return (
         <>
-            <Nav items={cart.length} />
+            <Nav items={cartLength} />
             {/* <ProductDetailsSection addToCart={addToCart} setQty={setQty} qty={qty} /> */}
             <section className="py-5">
                 <div className="container px-4 px-lg-5 my-5">

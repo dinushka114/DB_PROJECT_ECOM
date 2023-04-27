@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Nav from '../../components/User/Nav/Nav'
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const MyAccountPage = () => {
 
@@ -40,7 +40,7 @@ const MyAccountPage = () => {
 
     return (
         <>
-            <Nav />
+            <Nav  />
             <div className='container' style={{ marginTop: '20px' }}>
                 <h1>My Orders</h1>
 
@@ -62,15 +62,15 @@ const MyAccountPage = () => {
                         {
                             loading ? 'Loading..' : myOrders.map(order => {
                                 return (
-                                    <tr>
+                                    <tr className={order.status == "Confirmed" ? 'table-success' : null || order.status == "Cancel" ? 'table-danger' : null || order.status == "Pending" ? 'table-warning' : null || order.status == "Dispatched" ? 'table-info' : null || order.status == "Delivered" ? 'table-primary' : null}>
                                         <td>{order._id}</td>
-                                        <td>{order.createdAt.substring(0,10)}</td>
+                                        <td>{order.createdAt.substring(0, 10)}</td>
                                         <td>
                                             {
                                                 order.cart.map(item => {
                                                     return (
                                                         <>
-                                                            <p>{item.name.substring(0,5)}.. - {item.price} X {item.quantity}</p>
+                                                            <p>{item.name.substring(0, 5)}.. - {item.price} X {item.quantity}</p>
                                                             <img src={item.image} width={100} alt="" srcset="" />
                                                         </>
                                                     )
@@ -78,7 +78,7 @@ const MyAccountPage = () => {
                                             }
                                         </td>
                                         <td>{order.address}</td>
-                                        <td>{order.delivery_service}</td>
+                                        <td>{order.status == "Delivered" ? <Link>Rate {order.delivery_service}</Link> : order.delivery_service}</td>
                                         <td>{order.payment_id}</td>
                                         <td>{order.status}</td>
                                     </tr>
@@ -87,9 +87,6 @@ const MyAccountPage = () => {
                         }
 
                     </tbody>
-
-                    <p>Track order</p>
-
                 </table>
 
             </div>

@@ -2,48 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { format } from "date-fns";
 
-const CheckOrdersPage = () => {
+const CheckOrdersPage = ({orders,updateStatus , loading , statusHandler}) => {
 
-    const [orders, setOrders] = useState([])
-    const [loading, setLoading] = useState(false)
-    const [status, setStatus] = useState('Pending')
-
-
-    const statusHandler = (e) => {
-        let status = e.target.value;
-        if (status !== "Select status") {
-            // alert(status)
-            setStatus(status)
-        }
-    }
-
-    const updateStatus = async (id) => {
-        await axios.post("http://localhost:4005/api/change-order-status", { order_id: id, status })
-            .then(res => {
-                getAllOrders()
-            })
-            .catch(err => {
-                alert("Err")
-            })
-
-    }
-
-    const getAllOrders = async () => {
-        setLoading(true)
-        await axios.get("http://localhost:4005/api/get-all-orders")
-            .then(res => {
-
-                setOrders(res.data.orders)
-                setLoading(false)
-            })
-            .catch(err => {
-                alert("Err")
-            })
-    }
-
-    useEffect(() => {
-        getAllOrders()
-    }, [])
 
     return (
         <div className='m-2'>
@@ -89,7 +49,7 @@ const CheckOrdersPage = () => {
                                         <select onChange={statusHandler} className='form-control'>
                                             <option >Select status</option>
                                             <option value="Pending">Pending</option>
-                                            <option value="Verifed">Verify</option>
+                                            <option value="Verified">Verify</option>
                                             <option value="Cancel">Cancel</option>
                                         </select>
                                     </td>

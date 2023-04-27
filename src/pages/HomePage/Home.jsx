@@ -4,13 +4,15 @@ import Header from '../../components/User/Header/Header'
 import Product from '../../components/User/Product/Product'
 import Footer from '../../components/User/Footer/Footer'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState(null);
     const [isSearch, setIsSearch] = useState(false)
+    const [isProductsHave, setIsProductsHave] = useState(false)
 
     useEffect(() => {
         getProducts()
@@ -18,11 +20,17 @@ const Home = () => {
 
     const searchProducts = async (e) => {
         e.preventDefault()
+        if (query == null) {
+            alert("Enter search query")
+            return
+        }
+
         await axios.post("http://localhost:4003/api/search-product", { "query": query })
             .then(res => {
                 // console.log(res)
                 setProducts(res.data)
                 setIsSearch(true)
+                setIsProductsHave(true)
             })
             .catch(err => {
                 console.log(err)
@@ -61,9 +69,7 @@ const Home = () => {
                             })
                         }
 
-                        {
-                            products.length == 0 ? 'No products found' : null
-                        }
+                
 
                     </div>
                 </div>

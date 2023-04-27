@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 // import "./Checkout.css"
 import Nav from '../../components/User/Nav/Nav'
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 const Swal = require('sweetalert2')
 
 const CheckoutPage = () => {
+
+    const navigate = useNavigate()
 
     const [delivery, setDelivery] = useState('')
     const [nameOnCard, setNameOnCard] = useState('')
@@ -66,7 +69,6 @@ const CheckoutPage = () => {
             return;
         }
 
-        alert(cardNumber)
 
         if (!validateCardNumber(cardNumber)) {
             alert("Card no is not valid")
@@ -77,13 +79,16 @@ const CheckoutPage = () => {
         let user = localStorage.getItem("userId");
         let cart = JSON.parse(localStorage.getItem("cart"))
         let address = billingAddress + " " + city + " " + state + " " + zip
+        let price = localStorage.getItem("totalPrice")
 
         await axios.post("http://localhost:4003/api/place-order", {
             user,
             cart,
             address,
             name: billingName,
-            delivery_service: delivery
+            delivery_service: delivery,
+            price,
+            commis: Number(price) * 0.1
         })
             .then(res => {
                 Swal.fire({
@@ -96,7 +101,8 @@ const CheckoutPage = () => {
                 setTimeout(() => {
                     localStorage.removeItem("cart")
 
-                    window.location.href = "my-account"
+                    navigate("/my-account")
+
                 }, 1800)
 
 
@@ -232,7 +238,7 @@ const CheckoutPage = () => {
                             {/* <span>Previous step</span> */}
 
 
-                            <button class="btn btn-success px-3" onClick={() => pay()}>Pay</button>
+                            <button class="btn btn-success px-3" onClick={() => pay()}>Pay Rs.{localStorage.getItem("totalPrice")}.00</button>
 
 
 
