@@ -20,7 +20,15 @@ exports.changeOrderStatus = async (req, res) => {
     order.status = status;
 
     order.save()
-        .then(result => {
+        .then(async (result) => {
+            await axios.post("http://localhost:5000/events", {
+                type: "OrderChecked",
+                data: {
+                    id: order_id,
+                    status,
+                }
+            })
+
             res.status(201).json({ message: "Order status updated", status: "OK" })
         })
         .catch(err => {
@@ -28,3 +36,7 @@ exports.changeOrderStatus = async (req, res) => {
         })
 
 }
+
+// exports.saveCustomerOrder=async(req,res)=>{
+//     const {  } = req.body;
+// }
