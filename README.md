@@ -8,4 +8,3 @@ Group – CSSE_WE_45
 #  Once an item is purchased, an administrator may manually verify the order and confirm the
 order.
 ##  Once an item is purchased, an administrator may manually verify the order and confirm the
-order.
