@@ -1,4 +1,5 @@
-# DB_PROJECT_ECOM
+# Shopping Platform System for a Ayurvedic/Herbal Medicines and Supplements 🍃💊🛒
+
 Group – CSSE_WE_45
 
 Team Members
