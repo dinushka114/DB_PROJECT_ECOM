@@ -9,7 +9,7 @@ Team Members
 03. Thilakarathna S.A.Y.R
 04. Bandara S.M.D.S
 
-## System Requirements
+## ⚙️ System Requirements:
 
 > **Note:** All the implementations done according to the assignment criterias and guidlines.
 
