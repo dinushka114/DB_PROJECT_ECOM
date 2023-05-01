@@ -4,12 +4,13 @@ Group – CSSE_WE_45
 
 ## 🤝 Contributers & Team Members:
 
-|No.|Name| GitHub Link|
-|--|--|--|--|
-|01.| **Sooriyabandara H.M.T.S** | [# tharushisooriyabandara](https://github.com/tharushisooriyabandara) |
-|02.|**Chandrarathna M.G.D.P.M.B**| [# dinushka114](https://github.com/dinushka114)|
-|03.|**Thilakarathna S.A.Y.R**|[#Yasas-Ramod-Thilakarathna](https://github.com/Yasas-Ramod-Thilakarathna) |
-|04.|**Bandara S.M.D.S**|[# Dinesh-Saman](https://github.com/Dinesh-Saman)|
+01. **Sooriyabandara H.M.T.S**   -- [# tharushisooriyabandara](https://github.com/tharushisooriyabandara)
+
+02. **Chandrarathna M.G.D.P.M.B** -- [# dinushka114](https://github.com/dinushka114)
+
+03. **Thilakarathna S.A.Y.R** -- [#Yasas-Ramod-Thilakarathna](https://github.com/Yasas-Ramod-Thilakarathna)
+
+04. **Bandara S.M.D.S** -- [# Dinesh-Saman](https://github.com/Dinesh-Saman)
 
 ## ⚙️ System Requirements:
 
