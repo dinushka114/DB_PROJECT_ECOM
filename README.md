@@ -27,5 +27,6 @@
  - Once an item is purchased, an administrator may **manually verify** the order and **confirm** the order.
 
 #commit
+#commit
 
 
