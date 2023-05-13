@@ -30,6 +30,8 @@
 
  - Buyer can rate supplier according to their preference.
 
+ - Administrator can get all the order data.
+
 #commit
 #commit
 #commit
