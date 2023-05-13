@@ -28,6 +28,8 @@
 
  - An Administrator should be there, So that **Admin** can **accept/reject orders**.
 
+ - Buyer can rate supplier according to their preference.
+
 #commit
 #commit
 #commit
