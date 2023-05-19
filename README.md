@@ -81,4 +81,4 @@ Contributions to the Ayurvedic/Herbal Collaborative Shopping Platform are welcom
 
 ## 📝 License
 
-The Ayurvedic/Herbal Collaborative Shopping Platform is licensed under the [MIT
+The Ayurvedic/Herbal Collaborative Shopping Platform is licensed under the [MIT]
