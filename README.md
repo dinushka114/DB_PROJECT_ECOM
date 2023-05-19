@@ -26,12 +26,13 @@
 
 - Once an item is purchased, an administrator may **manually verify** the order and **confirm** the order.
 
- - An Administrator should be there, So that **Admin** can **accept/reject orders**.
+- An Administrator should be there, So that **Admin** can **accept/reject orders**.
 
- - Buyer can rate supplier according to their preference.
+- Buyer can rate supplier according to their preference.
 
- - Administrator can get all the order data.
+- Administrator can get all the order data.
 
+#commit
 #commit
 #commit
 #commit
