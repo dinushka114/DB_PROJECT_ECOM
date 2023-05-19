@@ -32,9 +32,3 @@
 
 - Administrator can get all the order data.
 
-#commit
-#commit
-#commit
-#commit
-#commit
-#commit
