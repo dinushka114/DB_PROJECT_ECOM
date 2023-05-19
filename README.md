@@ -20,72 +20,65 @@ This is a collaborative shopping platform for Ayurvedic/Herbal medicines and sup
 
 > **Note:** All the implementations done according to the assignment criterias and guidlines.
 
-## ⚙️ Features
 
-- **Buyer Interface**: A user-friendly web interface where buyers can browse and shop for Ayurvedic/Herbal medicines and supplements uploaded by sellers.
+## ⭐ Features
 
-- **Seller Management**: Sellers can add, update, and delete items available for purchase on the platform.
+- 👥 **Buyer Interface**: A user-friendly web interface where buyers can browse and shop for Ayurvedic/Herbal medicines and supplements uploaded by sellers.
 
-- **Search and Purchase**: Buyers can search for specific items and make purchases.
+- 🛒 **Seller Management**: Sellers can add, update, and delete items available for purchase on the platform.
 
-- **Multiple Item Purchase**: Buyers can purchase multiple items in a single order.
+- 🔍 **Search and Purchase**: Buyers can search for specific items and make purchases.
 
-- **Order Verification**: Administrators can manually verify orders and confirm them.
+- 🛍️ **Multiple Item Purchase**: Buyers can purchase multiple items in a single order.
 
-- **Delivery Options**: Buyers can select delivery options, and the platform will send requests to a third-party delivery service (e.g., DHL).
+- 👩‍💼 **Order Verification**: Administrators can manually verify orders and confirm them.
 
-- **Commission Charging**: A commission will be charged for each purchase, including payment service fees, serving as the main revenue source for the platform.
+- 🚚 **Delivery Options**: Buyers can select delivery options, and the platform will send requests to a third-party delivery service (e.g., DHL).
 
-- **Payment Integration**: Buyers can make payments using credit cards or PayPal/Payhere-like payment integration services. The system can connect to a payment gateway for credit card transactions, requiring credit card number, amount, CVC number, and cardholder's name.
+- 💰 **Commission Charging**: A commission will be charged for each purchase, including payment service fees, serving as the main revenue source for the platform.
 
-- **Confirmation Notifications**: Users receive confirmation of their purchase via SMS and email once the payment is made.
+- 💳 **Payment Integration**: Buyers can make payments using credit cards or PayPal/Payhere-like payment integration services. The system can connect to a payment gateway for credit card transactions, requiring credit card number, amount, CVC number, and cardholder's name.
 
-- **Order Tracking**: Buyers can track the status of their orders, including pending, confirmed, dispatched, or delivered.
+- 💌 **Confirmation Notifications**: Users receive confirmation of their purchase via SMS and email once the payment is made.
 
-- **Supplier and Product Reviews**: Users can review and rate suppliers as well as individual products.
+- 📦 **Order Tracking**: Buyers can track the status of their orders, including pending, confirmed, dispatched, or delivered.
 
-## Technologies Used
+- ⭐ **Supplier and Product Reviews**: Users can review and rate suppliers as well as individual products.
+
+## 💻 Technologies Used
 
 The system is implemented using the following technologies:
 
-- Backend: RESTful web services implemented using technology of choice (e.g., Node.js, Java, Python).
+- 💾 **Backend**: RESTful web services implemented using technology of choice (e.g., Node.js, Java, Python).
 
-- Middleware: WSO2 Enterprise Integrator (ESB) or Microservices architecture with Docker and Kubernetes.
+- 🌐 **Middleware**: WSO2 Enterprise Integrator (ESB) or Microservices architecture with Docker and Kubernetes.
 
-- Asynchronous Web Client: Developed using a JavaScript framework that supports asynchronous programming (e.g., Angular, React) or regular jQuery + AJAX.
+- 🌐 **Asynchronous Web Client**: Developed using a JavaScript framework that supports asynchronous programming (e.g., Angular, React) or regular jQuery + AJAX.
 
-- Security/Authentication: Appropriate mechanisms are used to uniquely identify and authenticate users, with three roles defined: buyer, seller, and administrator.
+- 🔒 **Security/Authentication**: Appropriate mechanisms are used to uniquely identify and authenticate users, with three roles defined: buyer, seller, and administrator.
 
-## Getting Started
+## 🚀 Getting Started
 
 To set up and run the Ayurvedic/Herbal Collaborative Shopping Platform locally, follow these steps:
 
-1. Clone the repository.
+1. 📥 Clone the repository.
 
-2. Install the necessary dependencies for the backend and frontend components.
+2. ⚙️ Install the necessary dependencies for the backend and frontend components.
 
-3. Configure the database connection and third-party service integrations.
+3. 🔧 Configure the database connection and third-party service integrations.
 
-4. Build and run the backend server.
+4. ▶️ Build and run the backend server.
 
-5. Start the frontend web client.
+5. 🌐 Start the frontend web client.
 
-6. Access the platform in your web browser.
+6. 🌍 Access the platform in your web browser.
 
 Please refer to the individual component's documentation for detailed instructions on setup and configuration.
 
-## Contributing
+## 🤝 Contributing
 
 Contributions to the Ayurvedic/Herbal Collaborative Shopping Platform are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
-## License
+## 📝 License
 
-The Ayurvedic/Herbal Collaborative Shopping Platform is licensed under the [MIT License](LICENSE).
-
-## Contact
-
-If you have any questions or need further assistance, please contact us at [email protected]
-
-Enjoy shopping for Ayurvedic/Herbal medicines and supplements on our platform!
-
-
+The Ayurvedic/Herbal Collaborative Shopping Platform is licensed under the [MIT
